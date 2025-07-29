@@ -1,0 +1,16 @@
+.vscode
+.prettierignore
+.eslintrc.json
+.gitignore
+.next
+.pnpm-store
+node_modules
+compose.yaml
+Dockerfile
+.env
+package-lock.json
+package.json
+pnpm-lock.yaml
+pnpm-workspace.yaml
+README.md
+tsconfig.json
