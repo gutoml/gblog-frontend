@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { defaultFont } from "@/fonts/default";
+import { defaultFont } from "@/fonts";
 
 export const metadata: Metadata = {
   title: "G-Blog",
