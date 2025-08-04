@@ -3,13 +3,13 @@ import { twMerge } from "tailwind-merge";
 import { LogoThemeSwitcher } from "./logo-theme-switcher";
 
 interface LogoProps extends React.HTMLAttributes<HTMLLinkElement> {
-  className: string;
+  inverse?: boolean;
 }
 
-export default function Logo({ className }: LogoProps) {
+export default function Logo({ className, inverse = false }: LogoProps) {
   return (
     <Link href="/" className={twMerge(["flex-1 lg:flex-initial", className])}>
-      <LogoThemeSwitcher />
+      <LogoThemeSwitcher inverse={inverse} />
     </Link>
   );
 }
