@@ -74,13 +74,16 @@ export function Header() {
 
         {/* Right Side Actions */}
         <div className="flex items-center gap-2">
-          <div className="relative hidden lg:block">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-            <Input
-              placeholder="Buscar..."
-              className="pl-9 w-[150px] focus:w-[200px] transition-all"
-            />
-          </div>
+          <form action="/search" method="get">
+            <div className="relative hidden lg:block">
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                name="key"
+                placeholder="Buscar..."
+                className="pl-9 w-[150px] focus:w-[200px] transition-all"
+              />
+            </div>
+          </form>
 
           <Button
             variant="ghost"

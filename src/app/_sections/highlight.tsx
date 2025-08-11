@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const mainNews = {
   title:
@@ -9,6 +10,7 @@ const mainNews = {
   category: "Economia",
   imageUrl:
     "https://placehold.co/768x432/EEE/31343C.webp?text=Noticia+destaque",
+  link: "/",
   related: [
     {
       title: "Trump isenta 45% das exportações brasileiras aos EUA de tarifaço",
@@ -44,15 +46,15 @@ export default function Highlight() {
           {mainNews.category}
         </Badge>
         <h2 className="text-3xl font-bold tracking-tight hover:text-primary transition-colors">
-          <a href="#">{mainNews.title}</a>
+          <Link href={mainNews.link}>{mainNews.title}</Link>
         </h2>
         <ul className="mt-4 space-y-2 hidden lg:block">
           {mainNews.related.map((item) => (
             <li key={item.title} className="flex items-start">
               <ArrowRight className="h-4 w-4 mt-1 mr-2 text-destructive flex-shrink-0" />
-              <a href={item.link} className="hover:underline">
+              <Link href={item.link} className="hover:underline">
                 {item.title}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

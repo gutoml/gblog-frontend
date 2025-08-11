@@ -70,10 +70,7 @@ export function MostReadSection() {
             >
               <article className="group relative h-full">
                 {/* Número do ranking */}
-                <Badge
-                  variant="destructive"
-                  className="absolute top-3 left-3 z-10 px-2 py-1 text-xs font-bold"
-                >
+                <Badge className="absolute top-3 left-3 z-10 px-2 py-1 text-xs font-bold bg-red-500 dark:bg-red-600 text-white">
                   {news.id}
                 </Badge>
 
