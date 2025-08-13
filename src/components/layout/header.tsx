@@ -1,13 +1,32 @@
 "use client";
 
-import { Menu, Search, Sun, Moon, User } from "lucide-react";
+import { Menu, Search, Sun, Moon, User, LogOut } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 import Logo from "../brand/logo";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
 
 const navItems = [
   { name: "Política", slug: "politica" },
@@ -28,10 +47,11 @@ export function Header() {
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="lg:hidden">
-                <Menu className="h-5 w-5" />
+                <Menu className="size-5" />
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-[300px]">
+              <SheetTitle className="sr-only">Menu de Navegação</SheetTitle>
               <nav className="flex flex-col gap-4 pt-6">
                 {navItems.map((item) => (
                   <Link
@@ -90,13 +110,45 @@ export function Header() {
             size="icon"
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           >
-            <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-            <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            <Sun className="size-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+            <Moon className="absolute size-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           </Button>
 
-          <Button variant="ghost" size="icon">
-            <User className="h-5 w-5" />
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <User className="size-5" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56" align="end">
+              <DropdownMenuLabel className="sr-only">
+                Minha conta
+              </DropdownMenuLabel>
+              <DropdownMenuGroup>
+                <DropdownMenuItem className="font-bold">
+                  <Link href="/" className="block">
+                    Entrar
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href="/" className="block">
+                    Cadastrar
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+            </DropdownMenuContent>
+            {/* <DropdownMenuContent className="w-56" align="end">
+              <DropdownMenuLabel>Minha conta</DropdownMenuLabel>
+              <DropdownMenuGroup>
+                <DropdownMenuItem>Meu perfil</DropdownMenuItem>
+              </DropdownMenuGroup>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem variant="destructive">
+                <LogOut />
+                Log out
+              </DropdownMenuItem>
+            </DropdownMenuContent> */}
+          </DropdownMenu>
         </div>
       </div>
     </header>

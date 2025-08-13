@@ -11,59 +11,31 @@ import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
-const mostReadNews = [
-  {
-    id: 1,
-    title:
-      "Moraes faz gesto obsceno ao acompanhar vitória do Corinthians em Itaquera",
-    category: "Política",
-    image:
-      "https://placehold.co/274x160/EEE/31343C.webp?text=Moraes+Corinthians",
-  },
-  {
-    id: 2,
-    title:
-      "Família de homem que espancou mulher com 60 socos se pronuncia; veja",
-    category: "Nacional",
-    image: "https://placehold.co/274x160/EEE/31343C.webp?text=Espancamento+RN",
-  },
-  {
-    id: 3,
-    title: "Mulher espancada com 60 socos foi agredida por ciúmes, diz polícia",
-    category: "Nacional",
-    image:
-      "https://placehold.co/274x160/EEE/31343C.webp?text=Violência+Doméstica",
-  },
-  {
-    id: 4,
-    title:
-      "Veja os classificados para semifinal da Liga das Nações Masculina de Vôlei",
-    category: "Esportes",
-    image: "https://placehold.co/274x160/EEE/31343C.webp?text=Vôlei+Brasil",
-  },
-  {
-    id: 5,
-    title:
-      "Alvo de sanções dos EUA, Alexandre de Moraes vai a Corinthians x Palmeiras",
-    category: "Política",
-    image: "https://placehold.co/274x160/EEE/31343C.webp?text=Moraes+Sanções",
-  },
-];
+interface NewsCarouselProps {
+  title: string;
+  newsList: {
+    id: number;
+    title: string;
+    image: string;
+    category: string;
+    link: string;
+  }[];
+}
 
-export function MostReadSection() {
+export default function NewsCarousel({ title, newsList }: NewsCarouselProps) {
   return (
     <section className="container max-w-6xl mx-auto py-8 border-b">
       {/* Título */}
       <div className="flex items-end gap-2 mb-8">
         <h2 className="text-2xl md:text-3xl font-bold text-red-600 flex items-center">
-          Mais Lidas
+          {title}
         </h2>
       </div>
 
       {/* Carrossel */}
       <Carousel opts={{ align: "start", loop: true }}>
         <CarouselContent>
-          {mostReadNews.map((news) => (
+          {newsList.map((news) => (
             <CarouselItem
               key={news.id}
               className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4"

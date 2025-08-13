@@ -22,26 +22,24 @@ export default function MostReadSidebar({ mostRead }: MostReadSidebarProps) {
             <Link
               href={item.link}
               className={`flex ${
-                index !== 0 ? "flex-col md:flex-row items-center" : "flex-col"
+                index !== 0 ? "flex-row items-center" : "flex-col"
               } gap-2`}
             >
-              <div
-                className={`relative ${
-                  index !== 0 ? "w-full md:w-[250px]" : ""
-                }`}
-              >
+              <div className={`relative ${index !== 0 ? " w-[125px]" : ""}`}>
                 <Image
                   src={item.image}
                   alt={item.title}
-                  width={419}
-                  height={249}
+                  width={250}
+                  height={140.625}
                   className="rounded-md w-full"
                 />
                 <span className="absolute top-0 left-0 flex items-center justify-center bg-red-500 dark:bg-red-600 text-xs font-bold text-white size-6 rounded-tl-md">
                   {index + 1}
                 </span>
               </div>
-              <h2 className={`font-bold ${index === 0 ? "text-base" : ""}`}>
+              <h2
+                className={`font-bold ${index === 0 ? "text-base" : ""} flex-1`}
+              >
                 {item.title}
               </h2>
             </Link>

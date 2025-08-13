@@ -71,7 +71,7 @@ export function Footer() {
                 <Badge
                   key={cat}
                   variant="outline"
-                  className="border-neutral-700 text-neutral-300 hover:bg-neutral-800"
+                  className="border-neutral-700 text-neutral-300 dark:text-neutral-600 hover:bg-neutral-800"
                 >
                   <Link href={`/categorias/${cat.toLowerCase()}`}>{cat}</Link>
                 </Badge>
