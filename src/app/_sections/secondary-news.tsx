@@ -33,7 +33,7 @@ export default function SecondaryNews() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {secondaryNews.map((news) => (
-        <a href={news.link}>
+        <a href={news.link} key={news.title}>
           <Card key={news.title} className="border-0 shadow-none group gap-4">
             <CardHeader className="p-0 gap-0">
               <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
